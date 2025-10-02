@@ -1,0 +1,15 @@
+Set-Content -Path "data\sample_health_data.csv" -Value @"
+date,region,cases,temperature,precipitation,humidity
+2023-01-01,Region_A,25,28.5,120,75
+2023-02-01,Region_A,30,29.1,150,80
+2023-03-01,Region_A,45,30.2,180,82
+2023-04-01,Region_A,60,31.5,200,85
+2023-05-01,Region_A,75,32.1,220,88
+2023-06-01,Region_A,120,33.5,250,90
+2023-01-01,Region_B,15,26.5,100,70
+2023-02-01,Region_B,22,27.1,130,75
+2023-03-01,Region_B,35,28.2,160,78
+2023-04-01,Region_B,48,29.5,180,80
+2023-05-01,Region_B,62,30.1,200,83
+2023-06-01,Region_B,95,31.5,230,85
+"@
