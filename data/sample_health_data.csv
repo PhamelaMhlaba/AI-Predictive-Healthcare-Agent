@@ -1,4 +1,3 @@
-Set-Content -Path "data\sample_health_data.csv" -Value @"
 date,region,cases,temperature,precipitation,humidity
 2023-01-01,Region_A,25,28.5,120,75
 2023-02-01,Region_A,30,29.1,150,80
@@ -12,4 +11,3 @@ date,region,cases,temperature,precipitation,humidity
 2023-04-01,Region_B,48,29.5,180,80
 2023-05-01,Region_B,62,30.1,200,83
 2023-06-01,Region_B,95,31.5,230,85
-"@
