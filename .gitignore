@@ -1,0 +1,49 @@
+# Data files - NEVER commit large datasets
+data/*.csv
+data/*.pkl
+data/*.json
+*.csv
+*.pkl
+
+# Generated files
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Virtual environment
+venv/
+.env
+.env.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.class
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Model files (can be large)
+models/*.pkl
+models/*.h5
+models/*.pt
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.temp
