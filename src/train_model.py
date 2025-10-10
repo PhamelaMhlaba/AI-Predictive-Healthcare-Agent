@@ -23,7 +23,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('../reports/training.log'),
+        logging.FileHandler('reports/training.log'),
         logging.StreamHandler()
     ]
 )
@@ -206,22 +206,22 @@ class MalariaModelTrainer:
             logger.warning(f"Feature importance analysis failed: {str(e)}")
             return None
     
-    def save_model_artifacts(self, model_path: str = '../models/random_forest_model.pkl') -> None:
+    def save_model_artifacts(self, model_path: str = 'models/random_forest_model.pkl') -> None:
         if self.model is None:
             raise ValueError("No trained model to save")
         
         try:
-            Path('../models').mkdir(exist_ok=True)
-            Path('../reports').mkdir(exist_ok=True)
+            Path('models').mkdir(exist_ok=True)
+            Path('reports').mkdir(exist_ok=True)
             
             self.model.save_model(model_path)
             
-            with open('../reports/training_metrics.json', 'w') as f:
+            with open('reports/training.log', 'w') as f:
                 json.dump(self.metrics, f, indent=2)
             
             if self.feature_importance is not None:
-                self.feature_importance.to_csv('../reports/feature_importance.csv', header=True)
-            
+                self.feature_importance.to_csv('reports/feature_importance.csv', header=True)
+
             self._generate_performance_report()
             
             logger.info(f"Model artifacts saved successfully")
@@ -256,7 +256,7 @@ class MalariaModelTrainer:
 ## Acceptance Criteria
 - **R² > 0.85**: {'PASS' if self.metrics.get('r2', 0) > 0.85 else 'FAIL'}
 
-## Model Parameters
+## Model Parameters.
 {json.dumps(self.model_params, indent=2)}
 """
             
