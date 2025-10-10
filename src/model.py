@@ -235,6 +235,4 @@ if __name__ == "__main__":
     except ModelNotTrainedError as e:
         print(f"✓ Correctly caught untrained prediction: {e}")
     
-    print("✅ Model class implementation successful!")
-
-    
+    print("Model class implementation successful!")
