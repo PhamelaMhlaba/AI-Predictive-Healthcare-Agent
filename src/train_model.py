@@ -50,35 +50,38 @@ class MalariaModelTrainer:
         self.model = None
         self.metrics = {}
         self.feature_importance = None
-        
+
+    
     def validate_data_paths(self) -> None:
+        # Path to data folder relative to src
+        data_dir = Path(__file__).parent.parent / "data/processed"
+        
+        # List of required files
         required_files = [
-            '../data/X_train.csv',
-            '../data/X_test.csv', 
-            '../data/y_train.csv',
-            '../data/y_test.csv'
+            data_dir / "X_train.csv",
+            data_dir / "X_test.csv",
+            data_dir / "y_train.csv",
+            data_dir / "y_test.csv"
         ]
         
-        missing_files = []
-        for file_path in required_files:
-            if not Path(file_path).exists():
-                missing_files.append(file_path)
-                
+        # Check which files are missing
+        missing_files = [str(f) for f in required_files if not f.exists()]
+
         if missing_files:
             error_msg = f"Missing data files: {missing_files}. Run data_preprocessor.py first."
             logger.error(error_msg)
             raise FileNotFoundError(error_msg)
-            
+
         logger.info("All required data files validated")
     
     def load_training_data(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
         try:
             logger.info("Loading preprocessed training data...")
             
-            X_train = pd.read_csv('../data/X_train.csv')
-            X_test = pd.read_csv('../data/X_test.csv')
-            y_train = pd.read_csv('../data/y_train.csv').squeeze()
-            y_test = pd.read_csv('../data/y_test.csv').squeeze()
+            X_train = pd.read_csv('../data/processed/X_train.csv')
+            X_test = pd.read_csv('../data/processed/X_test.csv')
+            y_train = pd.read_csv('../data/processed/y_train.csv').squeeze()
+            y_test = pd.read_csv('../data/processed/y_test.csv').squeeze()
             
             self._validate_data_shapes(X_train, X_test, y_train, y_test)
             self._validate_data_consistency(X_train, X_test)
