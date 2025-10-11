@@ -66,7 +66,7 @@ class MalariaPredictionApp:
                 self.feature_importance = pd.read_csv(feature_path, index_col=0)
                 self.feature_names = self.feature_importance.index.tolist()
             
-            st.success("✅ Model loaded successfully!")
+            st.success(" Model loaded successfully!")
             return True
             
         except Exception as e:
