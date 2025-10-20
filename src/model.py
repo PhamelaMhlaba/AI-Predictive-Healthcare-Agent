@@ -5,7 +5,7 @@ Defines the core model class for malaria prediction using RandomForestRegressor.
 
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.exceptions import NotFittedError
 import logging
 from typing import Union, Optional, Dict, Any
@@ -48,7 +48,7 @@ class MalariaPredictor:
         self.model_kwargs = kwargs
         
         # Initialize model with parameters
-        self.model = RandomForestClassifier(
+        self.model = RandomForestRegressor(
             n_estimators=n_estimators,
             random_state=random_state,
             **kwargs
@@ -88,7 +88,7 @@ class MalariaPredictor:
                 self.feature_names = list(X.columns)
             
             # Train the model
-            logger.info(f"Training model on {len(X)} samples and {X.shape[1]} features...")
+            logger.info(f"Training model on {len(X)} samples...")
             self.model.fit(X, y)
             self.is_trained = True
             self.training_shape = X.shape
