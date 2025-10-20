@@ -118,4 +118,6 @@
     },
     "duplicate_removal": {
       "initial_records": 594,
-      "duplicates_found": 
+      "duplicates_found": 0,
+      "final_records": 594
+    }
